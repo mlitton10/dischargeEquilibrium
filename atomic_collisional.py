@@ -71,6 +71,8 @@ class AtomicDataHandler:
             formatted_data = self.format_dataset(pycoll_data, minimum_rate_key)
 
             atomic_data_instance = AtomicData(formatted_data, self._format_file_name())
+            atomic_data_instance.save_data()
+            return atomic_data_instance
 
 
 
@@ -99,7 +101,7 @@ class AtomicDataHandler:
         x_data = data.datasets[key].x
         y_data = data.datasets[key].x
 
-        data_dict = {'reaction': reaction_name,
+        data_dict = {'reaction_name': reaction_name,
                      'y_data_info': y_data_type,
                      'x_data_info': x_data_type,
                      'x_data': x_data,
