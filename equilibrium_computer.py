@@ -8,3 +8,13 @@ plt.style.use('/home/matt/latex_and_matplotlib_styles/matplotlib_styles/physrev.
 plt.rcParams['figure.dpi'] = "300"
 
 
+class AtomicData:
+    def __init__(self, gas_species="He"):
+        """
+        For now, we can restrict the query to a single species, singly ionized
+        First we can check a standardized file name to see if we have already queried the data:
+
+        """
+
+
+        pass
