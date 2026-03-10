@@ -31,7 +31,7 @@ class AtomicDataHandler:
 
         """
 
-        self.species = gas_species
+        self.species = gas_species.upper()
         self.dataset = self.query_manager()
 
         pass
