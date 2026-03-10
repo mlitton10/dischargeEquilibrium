@@ -99,7 +99,7 @@ class AtomicDataHandler:
         x_data_type = metadata['columns'][1]
 
         x_data = data.datasets[key].x
-        y_data = data.datasets[key].x
+        y_data = data.datasets[key].y
 
         data_dict = {'reaction_name': reaction_name,
                      'y_data_info': y_data_type,
