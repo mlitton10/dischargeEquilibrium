@@ -35,7 +35,7 @@ def find_roots(x, y):
     return roots_x
 
 class Equilibrium:
-    def __init__(self, gas_species, gas_pressure_torr, length, radius):
+    def __init__(self, gas_species='He', gas_pressure_torr=1e-4, length=100, radius=40):
         self.species = gas_species
         self.pressure = gas_pressure_torr
         self.length = length
@@ -120,7 +120,7 @@ if __name__ == "__main__":
                                'radius': 40
     }
 
-    CTI_test_bed = Equilibrium('He', 1e-4, 100, 40)
+    CTI_test_bed = Equilibrium(**CTI_Test_bed_parameters)
 
     print(CTI_test_bed.Te)
 
