@@ -2,6 +2,7 @@ import numpy as np
 import pickle
 from pycollisiondb.pycollisiondb import PyCollision
 from pathlib import Path
+from scipy.interpolate import interp1d
 
 
 class AtomicData:
@@ -14,9 +15,16 @@ class AtomicData:
         self.y_data = data_dict['y_data']
         self.x_data = data_dict['x_data']
 
+        self.x_data_interpolated = 10**np.linspace(np.min(np.log10(self.x_data))+1e-5, np.max(np.log10(self.x_data)-1e-5), 2000)
+        self.y_data_interpolated = self.extend_data()
+
         self.file_name = file_name
 
         pass
+
+    def extend_data(self):
+        interp = interp1d(self.x_data, self.y_data)
+        return interp(self.x_data_interpolated)
 
     def save_data(self):
         with open('archived_atomic_data/' + self.file_name, 'wb') as f:
